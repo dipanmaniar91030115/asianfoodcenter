@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="mySlide">
+  <h1 style="text-align: center;">Gallary</h1>
+  <img src="{% static 'images/slider1.jpg' %}" style="width:100%">
+  <img src="{% static 'images/slider2.jpg' %}" style="width:100%">
+  <img src="{% static 'images/slider3.jpg' %}" style="width:100%">
+</div>
+
+{% endblock %}

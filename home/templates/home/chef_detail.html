@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div>
+  <h1>{{chef.first_name|capfirst}} {{chef.last_name|capfirst}} </h1>
+  <br><br> 
+  <p><b>Provider:</b> {{ chef.provider}} </p>
+  <p><b>Email:</b> {{ chef.email_address}} </p>
+  <p><b>Phone:</b> {{ chef.phone_number}} </p>
+</div>
+
+
+{% endblock %}

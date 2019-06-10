@@ -1,0 +1,35 @@
+body {
+    font-family: arial, sans-serif;
+    font-size: 95%;
+}
+form {
+    border: 1px solid;
+    border-radius: 1em;
+    width: 600px;
+    padding: 50px 60px;
+    margin: auto;
+}
+div {
+    margin: 10px;
+}
+label, .label {
+    display: inline-block;
+    width: 100px;
+}
+.error {
+    color: red;
+    font-size:x-small;
+}
+label[for=tandcagree] {
+    width: 300px;
+}
+#interests label {
+    width: auto;
+    margin-right: 15px;
+}
+#interests input {
+    margin-right: 0;
+}
+#submit {
+    margin: 20px 0 0 100px;
+}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="ourstaff" style="text-align: center">
+  <h1>Asian Food Recipes</h1>
+  <h2>List of Recipes</h2>
+  <br>
+  {% if recipe_list %}
+  <ul>
+
+    {% for recipe in recipe_list%}
+    <div class="tourname">
+      <a href="{% url 'recipe_detail' recipe.id %}">
+        <p><strong>{{ recipe.recipe_name|capfirst }}</strong> - {{recipe.cooktime}}</strong></p>
+      </a>
+    </div>
+    {% endfor %}
+    <br>
+  </ul>
+  {% else %}
+  <p>There are no recipes to display.</p>
+  {% endif %}
+
+</div>
+
+<section class="multi">
+  <aside>
+    <div>
+      <h3>Asian food introduction</h3>
+        <iframe width="1440" height="619" src="https://www.youtube.com/embed/tKsH-6vc5z0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </aside>
+
+
+</section>
+
+
+{% endblock %}

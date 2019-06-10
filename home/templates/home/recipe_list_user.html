@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Recipe by chef</h1>
+
+    {% if recipe_list %}
+    <ul>
+      {% for recipe in recipe_list %} 
+      <li>
+        <a href="{% url 'tour_detail' recipe.pk %}">{{recipe.recipe_name}}</a> - ({{ recipe.cooktime }})        
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no recipes displayed.</p>
+    {% endif %}       
+{% endblock %}

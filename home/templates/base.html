@@ -1,0 +1,161 @@
+{% load static %}
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Asian Food World</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
+
+  {% load static %}
+  <link rel="stylesheet" id="ample-style-css" href="{% static 'style.css' %}" type="text/css" media="all">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/screen.css' %}">
+  <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}">
+  <script type="text/babel" src="{% static 'JS/index.js' %}"></script>
+</head>
+
+<header>
+  <a class="logo" title="Asian_Food" href="{% url 'home' %}"><span>Asian Food World</span></a>
+  <div class="header">
+    <div class="main-head-wrap inner-wrap clearfix">
+
+      <div id="header-text" class="">
+        <h1 id="site-title">
+          <a href="{% url 'home' %}" title="Asian food center" rel="home"> </a>
+        </h1>
+
+
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li>
+      <a title="About us" href="{% url 'home' %}">About Us</a>
+
+    </li>
+    <li>
+      <a title="Recipes" href="{% url 'recipes' %}">Recipes</a>
+
+    </li>
+    <li>
+      <a title="Chefs" href="{% url 'chefs' %}">Chefs</a>
+    </li>
+    <li>
+      <a title="Gallery" href="{% url 'gallery' %}">Gallery</a>
+    </li>
+
+    <li>
+      {% if user.is_authenticated %}
+    <li>User: {{ user.get_username }}</li>
+    <li><a href="{% url 'my_recipes' %}">My Recipes</a></li>
+    <li><a href="{% url 'chef_create' %}">Create Chefs</a></li>
+    <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+    {% else %}
+    <li><a style="color:blue" href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+    {% endif %}
+    </li>
+  </ul>
+</nav>
+
+
+<body class="wide">
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        {% block sidebar %}
+
+        {% endblock %}
+
+
+      </div>
+
+      <div id="page" class="hfeed site">
+
+        <div class="main-wrapper">
+          <div class="single-page clearfix">
+            <div class="inner-wrap">
+              <hr>
+              <div id="page">
+
+                <section class="main">
+                  <aside>
+                    <div class="content trending">
+                      <h3><a onmouseover="style.color = 'red'" onmouseout="style.color = 'black'" href="#">People Love
+                          Asian Food</a></h3>
+                      
+                    </div>
+
+                  </aside>
+
+                  <aside>
+                    <div class="content find-it">
+                      <h3><a onmouseover="style.color = 'red'" onmouseout="style.color = 'black'" href="#">Home Of
+                          Asian Food</a></h3>
+                      
+                    </div>
+                  </aside>
+
+                  <aside>
+                    <div class="content tools">
+                      <h3><a onmouseover="style.color = 'red'" onmouseout="style.color = 'black'" href="#">Asian
+                          Cuisine</a>
+                      </h3>
+                      
+                    </div>
+                  </aside>
+
+                </section>
+
+              </div>
+
+              {% block content %}
+
+              {% endblock %}
+
+
+              {% block pagination %}
+              {% if is_paginated %}
+              <div class="pagination">
+                <span class="page-links">
+                  {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+                  {% endif %}
+                  <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                  </span>
+                  {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                  {% endif %}
+                </span>
+              </div>
+              {% endif %}
+              {% endblock %}
+
+            </div>
+          </div>
+        </div>
+       
+        <footer>
+          &copy; Asian Food World
+          <div class="content">
+            <a title="Privacy Policy" href="#">Privacy Policy</a>
+            <a title="Terms of Service" href="#">Terms of Service</a>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1 style="text-align: center;">Chef - The creator</h1>
+<br><br>
+{% if chef_list %}
+<ul>
+
+  {% for chef in chef_list %}
+  <div class="agentname">
+    <a href="{% url 'chef_detail' chef.id %}">
+      <p><strong>{{chef.last_name|capfirst}} {{chef.first_name|capfirst}}</strong> - {{chef.provider}} </p>
+    </a>
+  </div>
+  {% endfor %}
+  <br>
+</ul>
+{% else %}
+<p>There are no chefs to display.</p>
+{% endif %}
+{% endblock %}
