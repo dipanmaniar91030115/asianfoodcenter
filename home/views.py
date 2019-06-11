@@ -42,7 +42,7 @@ class ChefListView(generic.ListView):
     model = Chef
     paginate_by = 10
 
-
+# chefs login can view thier own recipes
 class RecipeDetailView(LoginRequiredMixin, generic.DetailView):
     model = Recipe
 
