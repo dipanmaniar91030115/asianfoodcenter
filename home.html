@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="atmosphere">
+  <article>
+    <h2 style="color:rgb(51, 105, 109)">Asian Food Recipes </h2>
+    <p style="color:rgb(47, 61, 75)">Awesome and flexible asian recipes that is perfect for the busy family,
+      couple or single person. Prep the night before or the morning-of. Cook for 20, 30 or 1 hour. These recipes are as
+      tasty as it is forgiving</p>
+    <a class="btn" title="Asian Food Recipes" href="{% url 'recipes' %}">Learn
+      more</a>
+  </article>
+</section>
+
+<section class="how-to">
+  <aside>
+    <div class="content">
+      <h4>Asian Food Background</h4>
+      <p>Asian dish is a broad classification for a dish that consists of pieces of dough (made from a variety
+        of starch sources) wrapped around a filling or of dough with no filling.</p>
+      <a title="find out asian food background." href="{% url 'chefs' %}">Learn more</a>
+
+    </div>
+
+  </aside>
+
+  <aside>
+    <div class="content">
+
+      <h4>Food Categories</h4>
+      <p>Asian dish may be prepared using a variety of methods, including baking, boiling, frying, simmering,
+        or steaming, and are found in many world cuisines.</p>
+      <a title="find out asian food categories." href="{% url 'chefs' %}">Learn more</a>
+    </div>
+  </aside>
+
+  <aside>
+    <div class="content">
+      <h4>Asian Taste</h4>
+      <p>Food are usually boiled, steamed or fried and some of them continue to be a traditional dish eaten on
+        New Year's Eve, the evening before New Year, and special family reunions.</p>
+      <a title="find out asian food taste" href="{% url 'chefs' %}">Learn more</a>
+    </div>
+  </aside>
+
+
+</section>
+<br><br>
+<p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+</div>
+{% endblock %}
